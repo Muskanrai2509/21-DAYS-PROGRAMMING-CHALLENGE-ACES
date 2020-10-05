@@ -1,0 +1,116 @@
+Python is an object-oriented programming language created by Guido Rossum in 1989.
+Python programming is widely used in Artificial Intelligence, Natural Language Generation, Neural Networks and other advanced fields of Computer Science. Python had deep focus on code readability & this class will teach you python from basics.
+
+
+Variables:
+A Python variable is a reserved memory location to store values. In other words, a variable in a python program gives data to the computer for processing.Every value in Python has a datatype. Different data types in Python are Numbers, List, Tuple, Strings, Dictionary, etc. Variables can be declared by any name or even alphabets like a, aa, abc, etc.
+Ex-
+# Declare a variable and initialize it
+f = 0
+print f
+# re-declaring the variable works
+f = 'python'
+print f
+Ex-
+f = 101
+print f
+# Global vs. local variables in functions
+def someFunction():
+# global f
+    f = 'I am learning Python'
+    print f
+someFunction()
+print f
+
+Delete a variable:
+You can also delete variable using the command del "variable name".
+
+In the example below, we deleted variable f, and when we proceed to print it, we get error "variable name is not defined" which means you have deleted the variable.
+f = 11;
+print(f)
+del f
+print(f)
+
+Summary:
+
+In Python you cannot concatenate string with number directly, you need to declare them as a separate variable, and after that, you can concatenate number with string
+Declare local variable when you want to use it for current function
+Declare Global variable when you want to use the same variable for rest of the program
+To delete a variable, it uses keyword "del".
+
+Operators:-
+Operators in a programming language are used to perform various operations
+There are various methods for arithmetic calculation in Python as you can use the eval function, declare variable & calculate, or call functions
+Comparison operators often referred as relational operators are used to compare the values on either side of them and determine the relation between them
+Python assignment operators are simply to assign the value to variable
+Python also allows you to use a compound assignment operator, in a complicated arithmetic calculation, where you can assign the result of one operand to the other
+For AND operator – It returns TRUE if both the operands (right side and left side) are true
+For OR operator- It returns TRUE if either of the operand (right side or left side) is true
+For NOT operator- returns TRUE if operand is false
+There are two membership operators that are used in Python. (in, not in).
+It gives the result based on the variable present in specified sequence or string
+The two identify operators used in Python are (is, is not)
+It returns true if two variables point the same object and false otherwise
+Precedence operator can be useful when you have to set priority for which calculation need to be done first in a complex calculation 
+
+Ex-
+#Arithmetic Operators
+x= 4	
+y= 5
+print x + y
+
+#Comparison Operators
+x = 4
+y = 5
+print('x > y  is',x>y)
+
+#Assignment Operators
+num1 = 4
+num2 = 5
+print ("Line 1 - Value of num1 : ", num1)
+print ("Line 2 - Value of num2 : ", num2)
+
+#compound assignment operator
+num1 = 4
+num2 = 5
+res = num1 + num2
+res += num1
+print ("Line 1 - Result of + is ", res)
+
+#Logical Operators
+a = True
+b = False
+print('a and b is',a and b)
+print('a or b is',a or b)
+print('not a is',not a)
+
+#Membership Operators
+x = 4
+y = 8
+list = [1, 2, 3, 4, 5 ];
+if ( x in list ):
+   print "Line 1 - x is available in the given list"
+else:
+   print "Line 1 - x is not available in the given list"
+if ( y not in list ):
+   print "Line 2 - y is not available in the given list"
+else:
+   print "Line 2 - y is available in the given list"
+
+#Identity Operators
+x = 20
+y = 20
+if ( x is y ):
+	print "x & y  SAME identity"
+y=30
+if ( x is not y ):
+	print "x & y have DIFFERENT identity"
+
+#Operator precedence
+v = 4
+w = 5
+x = 8
+y = 2
+z = 0
+z = (v+w) * x / y;   
+print "Value of (v+w) * x/ y is ",  z
