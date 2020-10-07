@@ -1,0 +1,105 @@
+Loops:
+Loops can execute a block of code number of times until a certain condition is met. Their usage is fairly common in programming. Unlike other programming language that have For Loop, while loop, dowhile, etc.
+For loop is used to iterate over elements of a sequence.
+While Loop is used to repeat a block of code
+#
+#Example file for working with loops
+#
+x=0
+#define a while loop
+while(x <4):
+print(x)
+x = x+1
+#Example file for working with loops
+#
+x=0
+#define a while loop
+#while(x <4):
+#print x
+#x = x+1
+
+#Define a for loop 
+for x in range(2,7):
+print(x)
+#use a for loop over a collection
+Months = ["Jan","Feb","Mar","April","May","June"]
+for m in Months:
+print(m)
+Break statements in For Loop:
+#use a for loop over a collection
+#Months = ["Jan","Feb","Mar","April","May","June"]
+#for m in Months:
+#print m
+
+# use the break and continue statements
+for x in range (10,20):
+if (x == 15): break
+#if (x % 2 == 0) : continue
+print(x)
+Enumerate :
+Ex:- Months = ["Jan","Feb","Mar","April","May","June"]
+for i, m in enumerate (Months):
+    print (i,m)
+Variables:-
+In Python you cannot concatenate string with number directly, you need to declare them as a separate variable, and after that, you can concatenate number with string
+Declare local variable when you want to use it for current function
+Declare Global variable when you want to use the same variable for rest of the program
+To delete a variable, it uses keyword "del". 
+Class in python :
+A class is a user-defined blueprint or prototype from which objects are created. Classes provide a means of bundling data and functionality together.
+class Person:
+    "This is a person class"
+    age = 10
+
+    def greet(self):
+        print('Hello')
+
+
+# Output: 10
+print(Person.age)
+
+# Output: <function Person.greet>
+print(Person.greet)
+
+# Output: 'This is my second class'
+print(Person.__doc__)
+
+Creating Objects of class :
+An Object is an instance of a Class. A class is like a blueprint while an instance is a copy of the class with actual values.
+Objects can also contain methods. Methods in objects are functions that belong to the object.
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def myfunc(self):
+    print("Hello my name is " + self.name)
+
+p1 = Person("John", 36)
+p1.myfunc()
+
+Python method:
+A Python method is like a Python function, but it must be called on an object. And to create it, you must put it inside a class.
+>> class Try:
+        def __init__(self):
+                pass
+        def printhello(self,name):
+                print(f"Hello, {name}")
+                return name
+>>> obj=Try()
+>>> obj.printhello('Muskan' )
+
+a. __init__()
+
+>>> class Animal:
+       def __init__(self,species,gender):
+                 self.species=species
+                 self.gender=gender
+>>> fluffy=Animal('Dog','Female')
+>>> fluffy.gender
+b. Python Self Parameter:
+>>> class Fruit:
+        def printstate(self,state):
+               print(f"The orange is {state}")
+>>> orange=Fruit()
+>>> orange.printstate("ripe")
