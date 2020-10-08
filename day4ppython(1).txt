@@ -125,11 +125,8 @@ obj1.show()
 obj2.show()
 
 1.Multiple Inheritance: When a class is derived from more than one base class it is called multiple Inheritance.
-class Parent1(): 
-
-          
-
-    # Parent's show method 
+class Parent1()
+# Parent's show method 
 
     def show(self): 
 
@@ -139,10 +136,7 @@ class Parent1():
 # Defining Parent class 2 
 
 class Parent2(): 
-
-          
-
-    # Parent's show method 
+ # Parent's show method 
 
     def display(self): 
 
@@ -163,24 +157,14 @@ class Child(Parent1, Parent2):
 
         print("Inside Child") 
 
-     
-
-        
-# Driver's code 
-
+ 
 obj = Child() 
-
-  
 obj.show() 
 obj.display()
 2.Multilevel Inheritance: When we have a child and grandchild relationship
 class Parent():  
-
-        
-
-    # Parent's show method 
-
-    def display(self): 
+# Parent's show method 
+     def display(self): 
 
         print("Inside Parent") 
 
