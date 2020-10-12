@@ -1,0 +1,133 @@
+1 Fancier Output Formatting
+So far we’ve encountered two ways of writing values: expression statements and the print() function.
+(A third way is using the write() method of file objects; the standard output file can be referenced as
+sys.stdout. See the Library Reference for more information on this.
+Some examples:
+>>> s = 'Hello, world.'
+>>> str(s)
+'Hello, world.'
+>>> repr(s)
+"'Hello, world.'"
+>>> str(1/7)
+'0.14285714285714285'
+>>> x = 10 * 3.25
+>>> y = 200 * 200
+>>> s = 'The value of x is ' + repr(x) + ', and y is ' + repr(y) + '...'
+>>> print(s)
+The value of x is 32.5, and y is 40000...
+>>> # The repr() of a string adds string quotes and backslashes:
+... hello = 'hello, world\n'
+>>> hellos = repr(hello)
+>>> print(hellos)
+'hello, world\n'
+>>> # The argument to repr() may be any Python object:
+... repr((x, y, ('spam', 'eggs')))
+"(32.5, 40000, ('spam', 'eggs'))"
+Here are two ways to write a table of squares and cubes:
+>>> for x in range(1, 11):
+... print(repr(x).rjust(2), repr(x*x).rjust(3), end=' ')
+... # Note use of 'end' on previous line
+... print(repr(x*x*x).rjust(4))
+...
+1 1 1
+2 4 8
+3 9 27
+4 16 64
+5 25 125
+6 36 216
+7 49 343
+8 64 512
+9 81 729
+10 100 1000
+>>> for x in range(1, 11):
+... print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+...
+1 1 1
+2 4 8
+3 9 27
+4 16 64
+5 25 125
+6 36 216
+7 49 343
+8 64 512
+9 81 729
+10 100 1000
+
+There is another method, str.zfill(), which pads a numeric string on the left with zeros. It understands
+about plus and minus signs:
+>>> '12'.zfill(5)
+'00012'
+>>> '-3.14'.zfill(7)
+'-003.14'
+>>> '3.14159265359'.zfill(5)
+'3.14159265359'
+Basic usage of the str.format() method looks like this:
+>>> print('We are the {} who say "{}!"'.format('knights', 'Ni'))
+We are the knights who say "Ni!"
+The brackets and characters within them (called format fields) are replaced with the objects passed into the
+str.format() method. A number in the brackets can be used to refer to the position of the object passed
+into the str.format() method.
+>>> print('{0} and {1}'.format('spam', 'eggs'))
+spam and eggs
+>>> print('{1} and {0}'.format('spam', 'eggs'))
+eggs and spam
+If keyword arguments are used in the str.format() method, their values are referred to by using the name
+of the argument.
+>>> print('This {food} is {adjective}.'.format(
+... food='spam', adjective='absolutely horrible'))
+This spam is absolutely horrible.
+Positional and keyword arguments can be arbitrarily combined:
+>>> print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred',
+other='Georg'))
+The story of Bill, Manfred, and Georg.
+'!a' (apply ascii()), '!s' (apply str()) and '!r' (apply repr()) can be used to convert the value before
+it is formatted:
+>>> contents = 'eels'
+>>> print('My hovercraft is full of {}.'.format(contents))
+My hovercraft is full of eels.
+>>> print('My hovercraft is full of {!r}.'.format(contents))
+My hovercraft is full of 'eels'.
+An optional ':' and format specifier can follow the field name. This allows greater control over how the
+value is formatted. The following example rounds Pi to three places after the decimal.
+>>> import math
+>>> print('The value of PI is approximately {0:.3f}.'.format(math.pi))
+The value of PI is approximately 3.142.
+Passing an integer after the ':' will cause that field to be a minimum number of characters wide. This is
+useful for making tables pretty.
+>>> table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
+>>> for name, phone in table.items():
+... print('{0:10} ==> {1:10d}'.format(name, phone))
+...
+Jack ==> 4098
+Dcab ==> 7678
+Sjoerd ==> 4127
+If you have a really long format string that you don’t want to split up, it would be nice if you could reference
+the variables to be formatted by name instead of by position. This can be done by simply passing the dict
+and using square brackets '[]' to access the keys
+An optional ':' and format specifier can follow the field name. This allows greater control over how the
+value is formatted. The following example rounds Pi to three places after the decimal.
+>>> import math
+>>> print('The value of PI is approximately {0:.3f}.'.format(math.pi))
+The value of PI is approximately 3.142.
+Passing an integer after the ':' will cause that field to be a minimum number of characters wide. This is
+useful for making tables pretty.
+>>> table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
+>>> for name, phone in table.items():
+... print('{0:10} ==> {1:10d}'.format(name, phone))
+...
+Jack ==> 4098
+Dcab ==> 7678
+Sjoerd ==> 4127
+If you have a really long format string that you don’t want to split up, it would be nice if you could reference
+the variables to be formatted by name instead of by position. This can be done by simply passing the dict
+and using square brackets '[]' to access the keys.
+
+Old string formatting:
+
+The % operator can also be used for string formatting. It interprets the left argument much like a sprintf()-
+style format string to be applied to the right argument, and returns the string resulting from this formatting
+operation. For example:
+>>> import math
+>>> print('The value of PI is approximately %5.3f.' % math.pi)
+The value of PI is approximately 3.142.
+More information can be found in the old-string-formatting section.
