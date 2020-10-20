@@ -1,0 +1,104 @@
+Python with Pandas is used in a wide range of fields including academic and commercial domains including finance, economics, Statistics, analytics, etc.
+
+Pandas is an open-source Python Library providing high-performance data manipulation and analysis tool using its powerful data structures. The name Pandas is derived from the word Panel Data – an Econometrics from Multidimensional data
+
+pandas.Series
+
+A pandas Series can be created using the following constructor -
+
+pandas.Series( data, index, dtype, copy)
+
+Series is a one-dimensional labeled array capable of holding data of any type (integer, string, float, python objects, etc.).
+1
+data
+data takes various forms like ndarray, list, constants
+2 	
+index
+Index values must be unique and hashable, same length as data. Default np.arrange(n) if no index is passed.
+3 	
+dtype
+dtype is for data type. If None, data type will be inferred
+4 	
+copy
+Copy data. Default False
+
+Create an Empty Series:
+A basic series, which can be created is an Empty Series
+#import the pandas library and aliasing as pd
+import pandas as pd
+s = pd.Series()
+print s
+Its output is as follows -
+
+Series([], dtype: float64)
+
+Create a Series from ndarray:
+If data is an ndarray, then index passed must be of the same length. If no index is passed, then by default index will be range(n) where n is array length, i.e., [0,1,2,3…. range(len(array))-1].
+ex:
+#import the pandas library and aliasing as pd
+import pandas as pd
+import numpy as np
+data = np.array(['a','b','c','d'])
+s = pd.Series(data)
+print s
+Its output is as follows -
+
+0   a
+1   b
+2   c
+3   d
+dtype: object
+
+Create a Series from dict
+
+A dict can be passed as input and if no index is specified, then the dictionary keys are taken in a sorted order to construct index. If index is passed, the values in data corresponding to the labels in the index will be pulled out.
+Example 1
+
+#import the pandas library and aliasing as pd
+import pandas as pd
+import numpy as np
+data = {'a' : 0., 'b' : 1., 'c' : 2.}
+s = pd.Series(data)
+print s
+
+Create a Series from Scalar:
+
+If data is a scalar value, an index must be provided. The value will be repeated to match the length of index
+
+#import the pandas library and aliasing as pd
+import pandas as pd
+import numpy as np
+s = pd.Series(5, index=[0, 1, 2, 3])
+print s
+
+Its output is as follows -
+
+0  5
+1  5
+2  5
+3  5
+dtype: int64
+
+Its output is as follows -
+
+a 0.0
+b 1.0
+c 2.0
+dtype: float64
+
+more ex:
+
+#import the pandas library and aliasing as pd
+import pandas as pd
+import numpy as np
+data = np.array(['a','b','c','d'])
+s = pd.Series(data,index=[100,101,102,103])
+print s
+
+Its output is as follows -
+
+100  a
+101  b
+102  c
+103  d
+dtype: object
