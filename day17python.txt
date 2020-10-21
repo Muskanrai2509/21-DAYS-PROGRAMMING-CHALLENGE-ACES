@@ -1,0 +1,170 @@
+Accessing Data from Series with Position:
+
+Data in the series can be accessed similar to that in an ndarray.
+Retrieve the first element. As we already know, the counting starts from zero for the array, which means the first element is stored at zeroth position and so on.
+
+import pandas as pd
+s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
+
+#retrieve the first element
+print s[0]
+
+Its output is as follows -
+1
+
+ex2:
+
+import pandas as pd
+s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
+
+#retrieve the first three element
+print s[:3]
+
+Its output is as follows -
+
+a  1
+b  2
+c  3
+dtype: int64
+
+Retrieve Data Using Label (Index):
+
+A Series is like a fixed-size dict in that you can get and set values by index label.
+Retrieve a single element using index label value.
+
+import pandas as pd
+s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
+
+#retrieve a single element
+print s['a']
+
+ex2:
+
+import pandas as pd
+s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
+
+#retrieve multiple elements
+print s[['a','c','d']]
+
+Its output is as follows -
+
+a  1
+c  3
+d  4
+dtype: int64
+
+A Data frame is a two-dimensional data structure, i.e., data is aligned in a tabular fashion in rows and columns.
+Features of DataFrame
+
+    Potentially columns are of different types
+    Size – Mutable
+    Labeled axes (rows and columns)
+    Can Perform Arithmetic operations on rows and columns
+
+pandas.DataFrame:
+
+A pandas DataFrame can be created using the following constructor -
+
+pandas.DataFrame( data, index, columns, dtype, copy)
+Create DataFrame
+
+A pandas DataFrame can be created using various inputs like -
+
+    Lists
+    dict
+    Series
+    Numpy ndarrays
+    Another DataFrame
+
+In the subsequent sections of this chapter, we will see how to create a DataFrame using these inputs.
+Create an Empty DataFrame
+
+A basic DataFrame, which can be created is an Empty Dataframe.
+Example
+
+#import the pandas library and aliasing as pd
+import pandas as pd
+df = pd.DataFrame()
+print df
+
+Its output is as follows -
+
+Empty DataFrame
+Columns: []
+Index: []
+
+Create a DataFrame from Lists
+
+The DataFrame can be created using a single list or a list of lists.
+Example 1
+
+
+import pandas as pd
+data = [1,2,3,4,5]
+df = pd.DataFrame(data)
+print df
+
+Its output is as follows -
+
+     0
+0    1
+1    2
+2    3
+3    4
+4    5
+Create a DataFrame from Dict of ndarrays / Lists
+
+All the ndarrays must be of same length. If index is passed, then the length of the index should equal to the length of the array.
+
+import pandas as pd
+data = {'Name':['Tom', 'Jack', 'Steve', 'Ricky'],'Age':[28,34,29,42]}
+df = pd.DataFrame(data)
+print df
+
+Its output is as follows -
+
+      Age      Name
+0     28        Tom
+1     34       Jack
+2     29      Steve
+3     42      Ricky
+
+Create a DataFrame from List of Dicts
+
+List of Dictionaries can be passed as input data to create a DataFrame. The dictionary keys are by default taken as column names.
+Example 1
+
+The following example shows how to create a DataFrame by passing a list of dictionaries.
+
+
+import pandas as pd
+data = [{'a': 1, 'b': 2},{'a': 5, 'b': 10, 'c': 20}]
+df = pd.DataFrame(data)
+print df
+
+Its output is as follows -
+
+    a    b      c
+0   1   2     NaN
+1   5   10   20.0
+
+Create a DataFrame from Dict of Series
+
+Dictionary of Series can be passed to form a DataFrame. The resultant index is the union of all the series indexes passed.
+Example
+
+import pandas as pd
+
+d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),
+   'two' : pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])}
+
+df = pd.DataFrame(d)
+print df
+
+Its output is as follows -
+
+      one    two
+a     1.0    1
+b     2.0    2
+c     3.0    3
+d     NaN    4
