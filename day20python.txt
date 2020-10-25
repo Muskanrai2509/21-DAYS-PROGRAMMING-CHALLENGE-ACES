@@ -1,0 +1,230 @@
+Basic Functionality:-
+1
+axes
+
+Returns a list of the row axis labels
+2 	
+
+dtype
+
+Returns the dtype of the object.
+3 	
+
+empty
+
+Returns True if series is empty.
+4 	
+
+ndim
+
+Example
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 100 random numbers
+s = pd.Series(np.random.randn(4))
+print s
+
+Its output is as follows -
+
+0   0.967853
+1  -0.148368
+2  -1.395906
+3  -1.758394
+dtype: float64
+
+axes
+
+Returns the list of the labels of the series.
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 100 random numbers
+s = pd.Series(np.random.randn(4))
+print ("The axes are:")
+print s.axes
+
+Its output is as follows -
+
+The axes are:
+[RangeIndex(start=0, stop=4, step=1)]
+
+The above result is a compact format of a list of values from 0 to 5, i.e., [0,1,2,3,4].
+empty
+
+Returns the Boolean value saying whether the Object is empty or not. True indicates that the object is empty.
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 100 random numbers
+s = pd.Series(np.random.randn(4))
+print ("Is the Object empty?")
+print s.empty
+
+Its output is as follows -
+
+Is the Object empty?
+False
+
+ndim
+
+Returns the number of dimensions of the object. By definition, a Series is a 1D data structure, so it returns
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 4 random numbers
+s = pd.Series(np.random.randn(4))
+print s
+
+print ("The dimensions of the object:")
+print s.ndim
+
+Its output is as follows -
+
+0   0.175898
+1   0.166197
+2  -0.609712
+3  -1.377000
+dtype: float64
+
+The dimensions of the object:
+1
+
+size
+
+Returns the size(length) of the series.
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 4 random numbers
+s = pd.Series(np.random.randn(2))
+print s
+print ("The size of the object:")
+print s.size
+
+Its output is as follows -
+
+0   3.078058
+1  -1.207803
+dtype: float64
+
+The size of the object:
+2
+
+values
+
+Returns the actual data in the series as an array.
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 4 random numbers
+s = pd.Series(np.random.randn(4))
+print s
+
+print ("The actual data series is:")
+print s.values
+
+Its output is as follows -
+
+0   1.787373
+1  -0.605159
+2   0.180477
+3  -0.140922
+dtype: float64
+
+The actual data series is:
+[ 1.78737302 -0.60515881 0.18047664 -0.1409218 ]
+
+Head & Tail
+
+To view a small sample of a Series or the DataFrame object, use the head() and the tail() methods.
+
+head() returns the first n rows(observe the index values). The default number of elements to display is five, but you may pass a custom number.
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 4 random numbers
+s = pd.Series(np.random.randn(4))
+print ("The original series is:")
+print s
+
+print ("The first two rows of the data series:")
+print s.head(2)
+
+Its output is as follows -
+
+The original series is:
+0   0.720876
+1  -0.765898
+2   0.479221
+3  -0.139547
+dtype: float64
+
+The first two rows of the data series:
+0   0.720876
+1  -0.765898
+dtype: float64
+
+tail() returns the last n rows(observe the index values). The default number of elements to display is five, but you may pass a custom number.
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 4 random numbers
+s = pd.Series(np.random.randn(4))
+print ("The original series is:")
+print s
+
+print ("The last two rows of the data series:")
+print s.tail(2)
+
+Its output is as follows -
+
+The original series is:
+0 -0.655091
+1 -0.881407
+2 -0.608592
+3 -2.341413
+dtype: float64
+
+The last two rows of the data series:
+2 -0.608592
+3 -2.341413
+dtype: float64
+
+Returns the number of dimensions of the underlying data, by definition 1.
+5 	
+
+size
+
+Returns the number of elements in the underlying data.
+6 	
+
+values
+
+Returns the Series as ndarray.
+7 	
+
+head()
+
+Returns the first n rows.
+8 	
+
+tail()
+
+Returns the last n rows
